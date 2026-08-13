@@ -255,14 +255,15 @@ table.shop_table td:last-child { text-align: right; }
 
 table.shop_table tfoot th {
   color: var(--checkout-muted);
-  font-weight: 500;
+  font-weight: 550;
+  line-height: 1.4;
   text-transform: none;
 }
 
 table.shop_table tfoot tr {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  align-items: start;
+  align-items: center;
   column-gap: 1.5rem;
   width: 100%;
 }
@@ -272,9 +273,14 @@ table.shop_table tfoot tr > td {
   display: block;
   width: auto !important;
   min-width: 0;
+  padding-top: .55rem;
+  padding-bottom: .55rem;
 }
 
 table.shop_table tfoot tr > td {
+  color: var(--checkout-ink);
+  font-weight: 650;
+  line-height: 1.4;
   text-align: right !important;
   white-space: nowrap;
 }
@@ -285,22 +291,72 @@ table.shop_table tfoot .woocommerce-Price-currencySymbol {
 }
 
 table.shop_table tfoot ul#shipping_method {
+  display: grid;
+  gap: .65rem;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
 table.shop_table tfoot ul#shipping_method li {
-  margin: 0 0 .55rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: .55rem;
+  margin: 0;
   padding: 0;
   white-space: nowrap;
 }
 
-table.shop_table tfoot ul#shipping_method li:last-child { margin-bottom: 0; }
-
 table.shop_table tfoot ul#shipping_method label {
   display: inline;
+  color: var(--checkout-muted);
+  font-size: .76rem;
+  font-weight: 550;
   white-space: nowrap;
+  cursor: pointer;
+}
+
+table.shop_table tfoot ul#shipping_method input[type="radio"] {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+  margin: 0;
+  border: 1px solid #aaa6a0;
+  border-radius: 50%;
+  background: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+table.shop_table tfoot ul#shipping_method input[type="radio"]::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--checkout-ink);
+  content: "";
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.5);
+  transition: opacity .15s ease, transform .15s ease;
+}
+
+table.shop_table tfoot ul#shipping_method input[type="radio"]:checked {
+  border-color: var(--checkout-ink);
+}
+
+table.shop_table tfoot ul#shipping_method input[type="radio"]:checked::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+table.shop_table tfoot ul#shipping_method input[type="radio"]:checked + label {
+  color: var(--checkout-ink);
+  font-weight: 700;
 }
 
 table.shop_table tfoot tr:first-child th,
@@ -308,13 +364,35 @@ table.shop_table tfoot tr:first-child td { padding-top: 2rem; }
 
 table.shop_table .order-total th,
 table.shop_table .order-total td {
-  padding-top: 1.5rem;
+  padding-top: 1.75rem;
+  padding-bottom: .25rem;
   color: var(--checkout-ink);
-  font-size: 1.05rem;
-  font-weight: 750;
+  font-size: 1.08rem;
+  font-weight: 800;
+  letter-spacing: -.025em;
 }
 
-table.shop_table .order-total td { font-size: 1.2rem; }
+table.shop_table .order-total td {
+  font-size: 1.3rem;
+  letter-spacing: -.035em;
+}
+
+table.shop_table tfoot small.includes_tax {
+  display: inline;
+  margin-left: .35rem;
+  color: var(--checkout-muted);
+  font-size: .62rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
+
+@media (max-width: 480px) {
+  table.shop_table tfoot tr { column-gap: 1rem; }
+  table.shop_table tfoot ul#shipping_method label { font-size: .7rem; }
+  table.shop_table .order-total td { font-size: 1.15rem; }
+}
 
 #payment {
   margin-top: 3.5rem;
