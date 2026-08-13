@@ -27,12 +27,6 @@ function designer_coffee_enqueue_checkout_assets() {
             array('dc-global'),
             designer_coffee_asset_version('pages/checkout/checkout.css')
         );
-        wp_enqueue_style(
-            'designer-coffee-review-order-css',
-            get_template_directory_uri() . '/pages/checkout/review-order.css',
-            array('designer-coffee-checkout-css'),
-            designer_coffee_asset_version('pages/checkout/review-order.css')
-        );
         wp_enqueue_script(
             'designer-coffee-checkout-js',
             get_template_directory_uri() . '/js/checkout.js',

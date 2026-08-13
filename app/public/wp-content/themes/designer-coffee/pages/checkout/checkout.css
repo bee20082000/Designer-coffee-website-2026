@@ -8,6 +8,7 @@
   --checkout-surface: #fff;
 }
 
+
 .designer-checkout-wrapper {
   min-height: 100vh;
   padding: clamp(7rem, 10vw, 9rem) 0 clamp(5rem, 8vw, 7rem);
@@ -707,4 +708,199 @@ table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
   .designer-checkout-title { font-size: 2.75rem; }
   #customer_details .col-1,
   #customer_details .col-2 { margin-bottom: 2.75rem; }
+}
+
+/* Order review and coupon components. */
+.dc-order-product {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.dc-order-product-media {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  flex: 0 0 64px;
+}
+
+.dc-order-product-image {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  object-fit: contain;
+}
+
+.dc-qty-badge {
+  position: absolute;
+  top: -7px;
+  right: -7px;
+  display: grid;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: #151515;
+  color: #fff;
+  font-size: .65rem;
+  font-weight: 750;
+  line-height: 1;
+  box-shadow: 0 0 0 3px #fff;
+}
+
+.dc-order-product-copy { min-width: 0; }
+
+.dc-order-product-name {
+  display: block;
+  color: #151515;
+  font-size: .82rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.dc-compact-meta {
+  margin-top: 5px;
+  color: #74716d;
+  font-size: .69rem;
+  line-height: 1.45;
+}
+
+.dc-compact-meta dl,
+.dc-compact-meta p { margin: 0; }
+
+.dc-compact-meta dl.variation {
+  display: block !important;
+  color: #74716d !important;
+  font-size: .69rem !important;
+  line-height: 1.45 !important;
+}
+
+.dc-compact-meta dt,
+.dc-compact-meta dd {
+  display: inline;
+  margin: 0;
+  font-weight: 400;
+  font-size: inherit !important;
+  line-height: inherit !important;
+}
+
+.dc-compact-meta dt::after { content: none; }
+.dc-compact-meta dd + dt::before { content: " · "; }
+
+.dc-compact-meta dt[class*="Grind"],
+.dc-compact-meta dt[class*="grind"],
+.dc-compact-meta dt[class*="Xay"],
+.dc-compact-meta dt[class*="xay"] { display: none; }
+
+.dc-compact-meta dd p,
+.dc-compact-meta .designer-grind-value {
+  display: inline;
+  margin: 0;
+  color: #74716d !important;
+  font-size: inherit !important;
+  font-weight: 600 !important;
+  line-height: inherit !important;
+}
+
+.dc-compact-order-table tbody td {
+  padding-top: .25rem;
+  padding-bottom: 1.2rem;
+}
+
+.dc-compact-order-table tbody td.product-total {
+  width: 100px;
+  padding-left: 16px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.dc-checkout-coupon td {
+  padding: .7rem 0 1.15rem !important;
+  border: 0 !important;
+}
+
+.dc-coupon-control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+
+.dc-coupon-input {
+  width: 100%;
+  min-width: 0;
+  height: 64px;
+  padding: 0 14px;
+  border: 1px solid #dfddda;
+  border-radius: 14px;
+  background: #fff;
+  color: #151515;
+  font: inherit;
+  font-size: .8rem;
+  box-sizing: border-box;
+  box-shadow: none;
+}
+
+.dc-coupon-input:focus {
+  outline: 0;
+  border-color: #151515;
+}
+
+.dc-coupon-input::placeholder { color: #8a8782; }
+
+.dc-coupon-button {
+  min-width: 84px;
+  height: 64px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 14px;
+  background: #fff;
+  color: #151515;
+  font: inherit;
+  font-size: .74rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: background-color .18s ease, color .18s ease;
+}
+
+.dc-coupon-button:hover,
+.dc-coupon-button:focus-visible {
+  background: #151515;
+  color: #fff;
+}
+
+.dc-coupon-button:focus-visible {
+  outline: 3px solid rgba(21, 21, 21, .12);
+  outline-offset: 2px;
+}
+
+.dc-coupon-button:disabled {
+  cursor: wait;
+  opacity: .55;
+}
+
+.dc-coupon-feedback {
+  min-height: 1em;
+  margin: .45rem 0 0;
+  color: #74716d;
+  font-size: .68rem;
+  line-height: 1.45;
+}
+
+@media (max-width: 420px) {
+  .dc-order-product-media {
+    width: 54px;
+    height: 54px;
+    flex-basis: 54px;
+  }
+
+  .dc-order-product { gap: 12px; }
+  .dc-compact-order-table tbody td.product-total { width: auto; font-size: .72rem; }
+  .dc-coupon-control { grid-template-columns: 1fr 76px; gap: 8px; }
+  .dc-coupon-button { min-width: 0; padding: 0 12px; }
 }
