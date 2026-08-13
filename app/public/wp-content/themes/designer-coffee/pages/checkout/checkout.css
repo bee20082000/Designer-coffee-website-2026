@@ -260,24 +260,21 @@ table.shop_table tfoot th {
   text-transform: none;
 }
 
-table.shop_table tfoot tr {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: center;
-  column-gap: 1.5rem;
-  width: 100%;
-}
-
 table.shop_table tfoot tr > th,
 table.shop_table tfoot tr > td {
-  display: block;
-  width: auto !important;
-  min-width: 0;
+  display: table-cell;
   padding-top: .55rem;
   padding-bottom: .55rem;
+  vertical-align: middle;
+}
+
+table.shop_table tfoot tr > th {
+  width: auto;
+  padding-right: 1.5rem;
 }
 
 table.shop_table tfoot tr > td {
+  width: 1%;
   color: var(--checkout-ink);
   font-weight: 650;
   line-height: 1.4;
@@ -292,6 +289,7 @@ table.shop_table tfoot .woocommerce-Price-currencySymbol {
 
 table.shop_table tfoot ul#shipping_method {
   display: grid;
+  justify-items: end;
   gap: .65rem;
   margin: 0;
   padding: 0;
@@ -389,7 +387,7 @@ table.shop_table tfoot small.includes_tax {
 table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
 
 @media (max-width: 480px) {
-  table.shop_table tfoot tr { column-gap: 1rem; }
+  table.shop_table tfoot tr > th { padding-right: 1rem; }
   table.shop_table tfoot ul#shipping_method label { font-size: .7rem; }
   table.shop_table .order-total td { font-size: 1.15rem; }
 }
