@@ -129,6 +129,7 @@
   color: #151515;
   font: inherit;
   font-size: .8rem;
+  box-sizing: border-box;
   box-shadow: none;
 }
 

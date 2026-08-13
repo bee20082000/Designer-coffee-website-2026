@@ -237,13 +237,13 @@ form.checkout_coupon { display: none !important; }
 .select2-container--default .select2-selection--single {
   width: 100%;
   height: var(--checkout-control-height);
-  padding: 0 18px;
+  padding: 0 14px;
   border: 1px solid var(--checkout-input);
   border-radius: 14px;
   background: #fff;
   color: var(--checkout-ink);
   font: inherit;
-  font-size: .9rem;
+  font-size: .8rem;
   box-sizing: border-box;
   box-shadow: none;
   transition: border-color .2s ease;
@@ -251,13 +251,13 @@ form.checkout_coupon { display: none !important; }
 
 .woocommerce-checkout input.input-text::placeholder,
 .woocommerce-checkout textarea::placeholder {
-  color: #918e89;
+  color: #8a8782;
   opacity: 1;
 }
 
 .woocommerce-checkout textarea {
   height: 128px;
-  padding-top: 17px;
+  padding-top: 14px;
   resize: vertical;
 }
 
