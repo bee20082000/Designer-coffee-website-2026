@@ -73,6 +73,9 @@
 
 .checkout-notices-wrapper { margin-bottom: 2.5rem; }
 
+.woocommerce-form-coupon-toggle,
+form.checkout_coupon { display: none !important; }
+
 .woocommerce-error,
 .woocommerce-info,
 .woocommerce-message {
@@ -222,7 +225,7 @@
 
 #order_review {
   padding: 0;
-  border: 0;
+  border: 0 !important;
   border-radius: 0;
   background: transparent;
   box-shadow: none;
@@ -231,7 +234,7 @@
 table.shop_table {
   width: 100%;
   margin: 0;
-  border: 0;
+  border: 0 !important;
   border-collapse: collapse;
   background: transparent;
 }
@@ -241,7 +244,7 @@ table.shop_table thead { display: none; }
 table.shop_table th,
 table.shop_table td {
   padding: .85rem 0;
-  border: 0;
+  border: 0 !important;
   color: var(--checkout-ink);
   font-size: .8rem;
   text-align: left;
@@ -295,12 +298,17 @@ table.shop_table .order-total td { font-size: 1.2rem; }
 
 #payment ul.payment_methods li {
   position: relative;
-  margin: 0 0 1.2rem;
-  padding: 0;
+  margin: 0 0 .6rem;
+  padding: 1rem 1.1rem;
   border: 0;
-  border-radius: 0;
-  background: transparent;
+  border-radius: 8px;
+  background: #f5f4f2;
   box-shadow: none;
+  transition: background-color .18s ease;
+}
+
+#payment ul.payment_methods li:has(input[type="radio"]:checked) {
+  background: #eceae6;
 }
 
 #payment ul.payment_methods label {
@@ -363,7 +371,7 @@ table.shop_table .order-total td { font-size: 1.2rem; }
 }
 
 #payment .payment_box {
-  margin: .65rem 0 0 1.9rem;
+  margin: .75rem 0 0 1.9rem;
   padding: 0;
   border: 0;
   background: transparent;

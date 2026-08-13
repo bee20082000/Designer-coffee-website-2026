@@ -83,6 +83,77 @@
   white-space: nowrap;
 }
 
+.dc-checkout-coupon td {
+  padding: .8rem 0 1.4rem !important;
+  border: 0 !important;
+}
+
+.dc-coupon-control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+
+.dc-coupon-input {
+  width: 100%;
+  min-width: 0;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #d8d5cf;
+  border-radius: 7px;
+  background: #fff;
+  color: #151515;
+  font: inherit;
+  font-size: .8rem;
+  box-shadow: none;
+}
+
+.dc-coupon-input:focus {
+  outline: 0;
+  border-color: #151515;
+}
+
+.dc-coupon-input::placeholder { color: #8a8782; }
+
+.dc-coupon-button {
+  min-width: 84px;
+  height: 48px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 7px;
+  background: #efeeeb;
+  color: #151515;
+  font: inherit;
+  font-size: .74rem;
+  font-weight: 750;
+  cursor: pointer;
+  transition: background-color .18s ease, color .18s ease;
+}
+
+.dc-coupon-button:hover,
+.dc-coupon-button:focus-visible {
+  background: #151515;
+  color: #fff;
+}
+
+.dc-coupon-button:focus-visible {
+  outline: 3px solid rgba(21, 21, 21, .12);
+  outline-offset: 2px;
+}
+
+.dc-coupon-button:disabled {
+  cursor: wait;
+  opacity: .55;
+}
+
+.dc-coupon-feedback {
+  min-height: 1em;
+  margin: .55rem 0 0;
+  color: #74716d;
+  font-size: .68rem;
+  line-height: 1.45;
+}
+
 @media (max-width: 420px) {
   .dc-order-product-media {
     width: 54px;
@@ -92,4 +163,6 @@
 
   .dc-order-product { gap: 12px; }
   .dc-compact-order-table tbody td.product-total { width: auto; font-size: .72rem; }
+  .dc-coupon-control { grid-template-columns: 1fr 76px; gap: 8px; }
+  .dc-coupon-button { min-width: 0; padding: 0 12px; }
 }

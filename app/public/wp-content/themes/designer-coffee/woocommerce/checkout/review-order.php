@@ -51,6 +51,20 @@ defined( 'ABSPATH' ) || exit;
 
     <?php do_action( 'woocommerce_review_order_after_cart_contents' ); ?>
   </tbody>
+  <?php if (wc_coupons_enabled()) : ?>
+    <tbody class="dc-checkout-coupon">
+      <tr>
+        <td colspan="2">
+          <div class="dc-coupon-control">
+            <label class="screen-reader-text" for="dc_coupon_code"><?php esc_html_e('Coupon code', 'woocommerce'); ?></label>
+            <input type="text" id="dc_coupon_code" class="dc-coupon-input" placeholder="<?php echo esc_attr__('Discount code', 'woocommerce'); ?>">
+            <button type="button" class="dc-coupon-button"><?php esc_html_e('Apply', 'woocommerce'); ?></button>
+          </div>
+          <p class="dc-coupon-feedback" role="status" aria-live="polite"></p>
+        </td>
+      </tr>
+    </tbody>
+  <?php endif; ?>
   <tfoot>
     <tr class="cart-subtotal">
       <th><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></th>

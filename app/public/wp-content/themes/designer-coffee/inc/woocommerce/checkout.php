@@ -33,6 +33,13 @@ function designer_coffee_enqueue_checkout_assets() {
             array('designer-coffee-checkout-css'),
             designer_coffee_asset_version('pages/checkout/review-order.css')
         );
+        wp_enqueue_script(
+            'designer-coffee-checkout-js',
+            get_template_directory_uri() . '/js/checkout.js',
+            array('jquery', 'wc-checkout'),
+            designer_coffee_asset_version('js/checkout.js'),
+            true
+        );
     }
 
     if ($is_thankyou || $is_thankyou_template) {
