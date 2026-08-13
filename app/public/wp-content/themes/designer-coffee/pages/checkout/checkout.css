@@ -259,6 +259,50 @@ table.shop_table tfoot th {
   text-transform: none;
 }
 
+table.shop_table tfoot tr {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  column-gap: 1.5rem;
+  width: 100%;
+}
+
+table.shop_table tfoot tr > th,
+table.shop_table tfoot tr > td {
+  display: block;
+  width: auto !important;
+  min-width: 0;
+}
+
+table.shop_table tfoot tr > td {
+  text-align: right !important;
+  white-space: nowrap;
+}
+
+table.shop_table tfoot .woocommerce-Price-amount,
+table.shop_table tfoot .woocommerce-Price-currencySymbol {
+  white-space: nowrap;
+}
+
+table.shop_table tfoot ul#shipping_method {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+table.shop_table tfoot ul#shipping_method li {
+  margin: 0 0 .55rem;
+  padding: 0;
+  white-space: nowrap;
+}
+
+table.shop_table tfoot ul#shipping_method li:last-child { margin-bottom: 0; }
+
+table.shop_table tfoot ul#shipping_method label {
+  display: inline;
+  white-space: nowrap;
+}
+
 table.shop_table tfoot tr:first-child th,
 table.shop_table tfoot tr:first-child td { padding-top: 2rem; }
 

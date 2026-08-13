@@ -61,15 +61,34 @@
 .dc-compact-meta dl,
 .dc-compact-meta p { margin: 0; }
 
+.dc-compact-meta dl.variation {
+  display: block !important;
+  color: #74716d !important;
+  font-size: .69rem !important;
+  line-height: 1.45 !important;
+}
+
 .dc-compact-meta dt,
 .dc-compact-meta dd {
   display: inline;
   margin: 0;
   font-weight: 400;
+  font-size: inherit !important;
+  line-height: inherit !important;
 }
 
-.dc-compact-meta dt::after { content: ": "; }
+.dc-compact-meta dt::after { content: none; }
 .dc-compact-meta dd + dt::before { content: " · "; }
+
+.dc-compact-meta dd p,
+.dc-compact-meta .designer-grind-value {
+  display: inline;
+  margin: 0;
+  color: #74716d !important;
+  font-size: inherit !important;
+  font-weight: 600 !important;
+  line-height: inherit !important;
+}
 
 .dc-compact-order-table tbody td {
   padding-top: .25rem;
