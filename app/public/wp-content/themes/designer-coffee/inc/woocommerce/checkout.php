@@ -152,6 +152,35 @@ function designer_coffee_reset_checkout_field_value($value, $input) {
 }
 add_filter('woocommerce_checkout_get_value', 'designer_coffee_reset_checkout_field_value', 10, 2);
 
+/**
+ * Offer delivery only. Preserve configured delivery rates and provide the
+ * store's standard fee when WooCommerce has no matching delivery rate.
+ */
+function designer_coffee_delivery_only_shipping_rates($rates, $package) {
+    foreach ($rates as $rate_id => $rate) {
+        $method_id = is_object($rate) && method_exists($rate, 'get_method_id')
+            ? $rate->get_method_id()
+            : '';
+
+        if ('local_pickup' === $method_id) {
+            unset($rates[$rate_id]);
+        }
+    }
+
+    if (empty($rates) && class_exists('WC_Shipping_Rate')) {
+        $rates['designer_coffee_delivery'] = new WC_Shipping_Rate(
+            'designer_coffee_delivery',
+            __('Shipping fee', 'designer-coffee'),
+            35000,
+            array(),
+            'designer_coffee_delivery'
+        );
+    }
+
+    return $rates;
+}
+add_filter('woocommerce_package_rates', 'designer_coffee_delivery_only_shipping_rates', 100, 2);
+
 // 4. Change Submit Button Text to "ĐẶT HÀNG"
 if (!function_exists('designer_coffee_order_button_text')) {
     function designer_coffee_order_button_text() {
@@ -184,11 +213,11 @@ if (!function_exists('designer_coffee_checkout_item_quantity')) {
         if ($grind_val) {
             $cgs_opts = function_exists('cgs_get_grind_options') ? cgs_get_grind_options() : array();
             $label_val = isset($cgs_opts[$grind_val]['label']) ? $cgs_opts[$grind_val]['label'] : ucfirst(str_replace('-', ' ', $grind_val));
-            $meta_html .= '<div class="designer-grind-meta">Grind: <strong class="designer-grind-value">' . esc_html($label_val) . '</strong></div>';
+            $meta_html .= '<div class="designer-grind-meta"><strong class="designer-grind-value">' . esc_html($label_val) . '</strong></div>';
         } elseif (!empty($cart_item['variation']) && is_array($cart_item['variation'])) {
             foreach ($cart_item['variation'] as $key => $value) {
                 if (strpos(strtolower($key), 'grind') !== false || strpos(strtolower($key), 'xay') !== false) {
-                    $meta_html .= '<div class="designer-grind-meta">' . esc_html(wc_attribute_label(str_replace('attribute_', '', $key))) . ': <strong class="designer-grind-value">' . esc_html($value) . '</strong></div>';
+                    $meta_html .= '<div class="designer-grind-meta"><strong class="designer-grind-value">' . esc_html($value) . '</strong></div>';
                 }
             }
         }

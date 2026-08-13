@@ -80,6 +80,11 @@
 .dc-compact-meta dt::after { content: none; }
 .dc-compact-meta dd + dt::before { content: " · "; }
 
+.dc-compact-meta dt[class*="Grind"],
+.dc-compact-meta dt[class*="grind"],
+.dc-compact-meta dt[class*="Xay"],
+.dc-compact-meta dt[class*="xay"] { display: none; }
+
 .dc-compact-meta dd p,
 .dc-compact-meta .designer-grind-value {
   display: inline;
