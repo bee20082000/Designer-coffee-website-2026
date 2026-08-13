@@ -4,8 +4,12 @@ This is a custom classic WordPress theme with WooCommerce and optional ACF suppo
 
 ## Folder responsibilities
 
-- `functions.php`: theme bootstrap, hooks, and shared PHP behavior. Keep page markup out of this file.
-- `inc/`: focused PHP modules that register hooks or provide shared services.
+- `functions.php`: ordered module loader only.
+- `inc/theme-setup.php`: theme support, menus, constants, and asset versioning.
+- `inc/assets.php`: global and conditional asset loading.
+- `inc/acf-fields.php`: ACF compatibility helper and local field groups.
+- `inc/admin.php`: project-specific WordPress admin cleanup.
+- `inc/woocommerce/`: cart, catalog, checkout, currency, and permalink behavior.
 - `template-parts/`: reusable view fragments with little or no business logic.
 - `pages/<feature>/`: a page template and its feature-specific styles.
 - `css/components/`: global design-system tokens and reusable UI components.
@@ -23,15 +27,4 @@ This is a custom classic WordPress theme with WooCommerce and optional ACF suppo
 6. Keep page-specific CSS/JS beside its feature; promote styles to `css/components/` only when reused.
 7. Check every PHP change with `php -l` before deployment.
 
-## Recommended next splits
-
-`functions.php` should continue moving toward a small loader. The next safe modules are:
-
-- `inc/theme-setup.php`: theme support, menus, and admin cleanup.
-- `inc/assets.php`: all style/script registration.
-- `inc/acf-fields.php`: local ACF field groups.
-- `inc/woocommerce/cart.php`: mini-cart rendering and AJAX actions.
-- `inc/woocommerce/catalog.php`: product cards, filters, and permalinks.
-- `inc/woocommerce/checkout.php`: checkout presentation hooks and translations.
-
-Move one responsibility at a time and smoke-test the affected page after each move.
+See `docs/refactoring-audit.md` for known risks and review-required items.

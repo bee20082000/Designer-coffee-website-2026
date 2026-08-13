@@ -247,6 +247,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const formData = new FormData();
       formData.append('action', 'dc_update_cart_qty');
+      formData.append('nonce', dc_ajax.nonce);
       formData.append('cart_item_key', key);
       formData.append('quantity', currentQty);
 
@@ -483,6 +484,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const formData = new FormData();
       formData.append('action', 'dc_add_to_cart');
+      formData.append('nonce', dc_ajax.nonce);
       formData.append('product_id', productId);
       formData.append('quantity', quantity);
       if (selectedSize) {
@@ -588,6 +590,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const formData = new FormData();
       formData.append('action', 'dc_remove_cart_item');
+      formData.append('nonce', dc_ajax.nonce);
       formData.append('cart_item_key', cartItemKey);
 
       fetch(ajaxUrl, {
@@ -791,4 +794,3 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 });
-

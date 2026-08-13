@@ -308,6 +308,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const formData = new FormData();
             formData.append('action', 'dc_add_to_cart');
+            formData.append('nonce', dc_ajax.nonce);
             formData.append('product_id', productId);
             formData.append('quantity', qty);
             if (selectedSize) {
@@ -372,4 +373,3 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 });
-
