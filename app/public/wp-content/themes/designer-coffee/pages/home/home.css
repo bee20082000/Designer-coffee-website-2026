@@ -1,0 +1,1109 @@
+@import url('https://fonts.googleapis.com/css2?family=Schoolbell&display=swap');
+
+/* ==========================================================================
+   HOMEPAGE FULL WHITE BACKGROUND & RED RECTANGLE INTRO SCREEN (30PX BORDER RADIUS)
+   ========================================================================== */
+
+
+body.home,
+body.page-template-template-home {
+  background-color: #ffffff !important;
+  color: #111111;
+}
+
+.intro-brand-screen {
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  height: auto;
+  left: auto;
+  right: auto;
+  background-color: var(--color-red) !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  z-index: 10;
+  padding: 6rem 2rem 5rem 2rem;
+}
+
+@media (max-width: 768px) {
+  .intro-brand-screen {
+    width: calc(100vw - 1.5rem);
+    min-height: 90vh;
+    height: auto;
+    margin: 0.75rem auto;
+    border-radius: 24px !important;
+    padding: 4rem 1.25rem 3rem 1.25rem;
+  }
+
+  /* Scale down stickers on mobile/tablet to avoid obscuring content */
+  .sticker-left .intro-sticker-img {
+    width: clamp(100px, 20vw, 150px);
+  }
+
+  .sticker-right .intro-sticker-img {
+    width: clamp(120px, 24vw, 185px);
+  }
+
+  .intro-sticker-wrapper.sticker-left {
+    top: -40%;
+    left: 20%;
+  }
+
+  .intro-sticker-wrapper.sticker-right {
+    bottom: -40%;
+    right: 20%;
+  }
+}
+
+.intro-brand-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 3rem auto;
+}
+
+.intro-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.intro-statement-headline {
+  font-size: clamp(2.4rem, 5.5vw, 4.8rem);
+  font-weight: 800;
+  color: #ffffff;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+  margin-bottom: 1.5rem;
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  z-index: 1;
+}
+
+.intro-statement-desc {
+  font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  opacity: 1;
+  visibility: visible;
+  position: relative;
+  z-index: 1;
+}
+
+.intro-cta-wrapper {
+  margin-top: 2.25rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  z-index: 11;
+  opacity: 1;
+  visibility: visible;
+}
+
+.intro-sticker-wrapper {
+  position: absolute;
+  z-index: 12;
+  opacity: 1;
+  visibility: visible;
+  will-change: transform, opacity;
+}
+
+
+.intro-sticker-wrapper.sticker-left {
+  top: -6%;
+  left: -8%;
+}
+
+.intro-sticker-wrapper.sticker-right {
+  bottom: -7%;
+  right: -8%;
+}
+
+/* Base sizes are scaled up in CSS so GSAP doesn't upscale beyond scale:1 */
+.sticker-left .intro-sticker-img {
+  width: clamp(180px, 24vw, 320px);
+}
+
+.sticker-right .intro-sticker-img {
+  width: clamp(210px, 28vw, 380px);
+}
+
+.intro-sticker-img {
+  height: auto;
+  display: block;
+  /* Avoid will-change on child to prevent nested compositing layer conflicts */
+}
+
+
+/* ==========================================================================
+   HERO SECTION (3 SMALL CARDS IN THE SAME LINE)
+   ========================================================================== */
+
+.hero-cards-section {
+  padding: 0 0 2rem 0;
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.hero-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+  width: 100%;
+}
+
+.hero-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  min-height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 2.25rem 1.75rem;
+  border: var(--border-subtle);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+}
+
+.hero-card:hover {
+  transform: translateY(-8px);
+}
+
+.hero-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-card:hover .hero-card-bg {
+  transform: scale(1.06);
+}
+
+.hero-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg,
+      rgba(10, 10, 10, 0.15) 0%,
+      rgba(10, 10, 10, 0.55) 45%,
+      rgba(10, 10, 10, 0.95) 100%);
+  z-index: 1;
+}
+
+.hero-card-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+}
+
+.hero-card-title {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.hero-card-desc {
+  font-size: 0.92rem;
+  color: #dddddd;
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.hero-card-cta .btn {
+  padding: 0.55rem 1.4rem;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 992px) {
+  .hero-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ==========================================================================
+   OUR PHILOSOPHY SECTION STYLES (SPACIOUS EVEN PADDING & BREATHING ROOM)
+   ========================================================================== */
+
+.philosophy-section {
+  padding: 6.5rem 0 7rem 0;
+  background: #ffffff;
+  border-bottom: var(--border-subtle);
+}
+
+/* Google Sans Font Helper (Strict Universal Override) */
+.schoolbell-font,
+.schoolbell-font *,
+.schoolbell-font .char,
+#typewriter-salutation,
+#typewriter-salutation *,
+#typewriter-quote,
+#typewriter-quote * {
+  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  letter-spacing: -0.3px;
+}
+
+/* REAL LOVE LETTER STATIONERY CARD (SPACIOUS EVEN PADDING, 32PX ROUNDED) */
+.philosophy-letter-card.real-letter-paper {
+  position: relative;
+  border-radius: 32px !important;
+  padding: 4.5rem 5rem 5.5rem 5rem !important;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.philosophy-letter-card.real-letter-paper:hover {
+  transform: translateY(-4px);
+}
+
+/* Letter Top Row: White Postmark & Stamp */
+.letter-top-row {
+  display: flex;
+  color: var(--color-red) !important;
+
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2.25rem;
+  position: relative;
+  z-index: 2;
+}
+
+.letter-postmark.white-postmark {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.75rem;
+  color: #1b1b1b !important;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.postmark-city {
+  line-height: 1.3;
+}
+
+.postmark-date {
+  font-size: 0.68rem;
+  color: rgba(27, 27, 27, 0.7) !important;
+  margin-top: 0.15rem;
+}
+
+.postage-stamp.white-stamp {
+  border: 2px dashed var(--color-red) !important;
+  padding: 0.45rem 1rem;
+  border-radius: 8px;
+  color: var(--color-red) !important;
+  font-weight: 800;
+  font-size: 0.78rem;
+  text-align: center;
+  background: rgba(203, 32, 38, 0.06) !important;
+  transform: rotate(-3deg);
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.postage-stamp span {
+  font-size: 0.65rem;
+  letter-spacing: 1.5px;
+}
+
+.postage-stamp strong {
+  font-size: 0.95rem;
+}
+
+/* Letter Body Grid: Text Column & Phin Illustration Photo */
+.letter-body-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 3rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.letter-photo-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.letter-photo {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+
+@media (max-width: 900px) {
+  .letter-body-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .letter-photo-col {
+    order: -1;
+  }
+
+  .letter-photo {
+    max-width: 260px;
+  }
+}
+
+/* Typewriter Cursor Indicator */
+.typewriter-cursor {
+  display: inline-block;
+  color: #1b1b1b;
+  font-weight: 400;
+  margin-left: 2px;
+  animation: cursorBlink 0.75s infinite;
+}
+
+@keyframes cursorBlink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+/* Letter Content with Schoolbell Font */
+.schoolbell-font,
+.letter-salutation.schoolbell-font,
+.letter-salutation.hachi-font,
+.letter-salutation.chewy-font {
+  color: #1b1b1b !important;
+  font-family: 'Schoolbell', cursive, sans-serif !important;
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  margin-bottom: 1.25rem;
+  line-height: 1.2;
+  text-transform: none;
+  position: relative;
+  z-index: 2;
+}
+
+.letter-quote,
+.letter-quote.schoolbell-font,
+.letter-quote.hachi-font,
+.letter-quote.chewy-font,
+#typewriter-quote,
+#typewriter-quote * {
+  font-size: clamp(1.2rem, 2.4vw, 1.7rem);
+  font-family: 'Schoolbell', cursive, sans-serif !important;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--color-red) !important;
+  line-height: 1.6;
+  max-width: 920px;
+  margin: 0 0 1rem 0;
+  position: relative;
+  z-index: 2;
+}
+
+
+.letter-signature.chewy-font {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+  position: relative;
+  z-index: 2;
+  gap: 0.25rem;
+}
+
+.signature-valediction {
+  font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+  color: #555555;
+}
+
+.signature-author {
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+  color: var(--color-red);
+}
+
+@media (max-width: 768px) {
+  .philosophy-letter-card.real-letter-paper {
+    padding: 2.5rem 2rem;
+  }
+
+  .letter-top-row {
+    padding-right: 0;
+    margin-bottom: 1.75rem;
+  }
+
+  .wax-seal-badge {
+    top: 1rem;
+    right: 1rem;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* CORE BELIEFS PIN SECTION (GSAP PINNED SCROLL LAYOUT) */
+.core-beliefs-pin-section {
+  position: relative;
+  background: #ffffff;
+  padding: 8rem 0;
+  overflow: visible;
+  border-bottom: var(--border-subtle);
+}
+
+.core-beliefs-pin-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  position: relative;
+}
+
+/* Left Content Column */
+.core-beliefs-pin-content {
+  width: 42%;
+  position: sticky;
+  top: 120px;
+  will-change: transform;
+}
+
+.philosophy-title-pin {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 1.1;
+  color: var(--color-red) !important;
+  font-weight: 800;
+  margin: 1.25rem 0 2rem 0;
+  text-transform: none;
+  font-family: var(--font-heading) !important;
+}
+
+.philosophy-lead-pin {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  line-height: 1.6;
+  color: #333333 !important;
+  margin-bottom: 2.5rem;
+}
+
+
+
+/* Right Gallery Column */
+.core-beliefs-pin-gallery {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  padding-bottom: 10rem;
+}
+
+/* Staggered, scrapbook style small images */
+.gallery-item {
+  position: relative;
+  width: 70%;
+  max-width: 380px;
+  background: #ffffff;
+  padding: 0.85rem 0.85rem 2.5rem 0.85rem;
+  border: 1px solid #eaeaea;
+  border-radius: 6px;
+  will-change: transform;
+}
+
+.gallery-img-box {
+  width: 100%;
+  border-radius: 4px;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+/* Scrapbook handwriting text */
+.gallery-handwriting {
+  position: absolute;
+  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  color: var(--color-red) !important;
+  font-size: 1.15rem;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* Positioning & tilts for each scrapbook item */
+.gallery-item.tilted-left {
+  transform: rotate(-3deg);
+  align-self: flex-start;
+}
+
+.gallery-item.tilted-right {
+  transform: rotate(4deg);
+  align-self: flex-end;
+}
+
+.gallery-item.black-and-white img {
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+.gallery-item.black-and-white:hover img {
+  filter: grayscale(0%);
+}
+
+.gallery-item.item-1 {
+  align-self: flex-end;
+}
+
+.gallery-item.item-1 .gallery-handwriting {
+  bottom: -1.8rem;
+  left: -2rem;
+  transform: rotate(-8deg);
+}
+
+.gallery-item.item-2 {
+  align-self: flex-start;
+}
+
+.gallery-item.item-2 .gallery-handwriting {
+  top: 40%;
+  right: -8rem;
+  transform: rotate(5deg);
+}
+
+.gallery-item.item-3 {
+  align-self: flex-end;
+}
+
+.gallery-item.item-3 .gallery-handwriting {
+  bottom: -2rem;
+  right: -1rem;
+  transform: rotate(-3deg);
+}
+
+.gallery-item.item-4 {
+  align-self: flex-start;
+}
+
+.gallery-item.item-4 .gallery-handwriting {
+  bottom: -1.8rem;
+  left: 2rem;
+  transform: rotate(4deg);
+}
+
+.gallery-item.item-5 {
+  align-self: flex-end;
+}
+
+.gallery-item.item-5 .gallery-handwriting {
+  top: 30%;
+  left: -7rem;
+  transform: rotate(-10deg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .core-beliefs-pin-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .core-beliefs-pin-content {
+    width: 100%;
+    position: relative;
+    top: 0;
+    margin-bottom: 4rem;
+    text-align: center;
+  }
+
+  .core-beliefs-pin-gallery {
+    width: 100%;
+    align-items: center;
+    gap: 4rem;
+  }
+
+  .gallery-item {
+    width: 90%;
+    align-self: center !important;
+  }
+}
+
+/* ==========================================================================
+   WHAT SUSTAINABLE AGRICULTURE MEANS TO US (4-CARD GRID WITH CLEAN SLIDE-UP HOVER)
+   ========================================================================== */
+
+.sustainability-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.sustainability-card {
+  position: relative;
+  border-radius: 20px;
+  background: var(--color-red) !important;
+  color: #ffffff !important;
+  padding: 2.25rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 350px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  will-change: transform;
+}
+
+.card-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.card-tag {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.card-badge {
+  background: #ffffff !important;
+  color: var(--color-red) !important;
+  padding: 0.35rem 0.9rem;
+  border-radius: 9999px;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+
+.card-bottom-content {
+  position: relative;
+  z-index: 2;
+}
+
+.card-title {
+  font-size: 1.45rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.6rem;
+  line-height: 1.2;
+}
+
+.card-desc {
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* CLEAN SLIDE-UP HOVER MOTION (No size expanding, only slide card up) */
+.sustainability-card:hover {
+  transform: translateY(-16px);
+  z-index: 5;
+}
+
+@media (max-width: 960px) {
+  .sustainability-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .sustainability-cards-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sustainability-card:hover {
+    transform: none !important;
+  }
+}
+
+/* Number Badge Positioned on Top Right */
+.pillar-badge {
+  background: #ffffff !important;
+  color: var(--color-red) !important;
+  padding: 0.38rem 1rem;
+  border-radius: 9999px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  align-self: flex-end !important;
+  margin-left: auto !important;
+  z-index: 2;
+}
+
+.pillar-content {
+  position: relative;
+  z-index: 2;
+}
+
+.pillar-tag {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.82);
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.pillar-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+  line-height: 1.15;
+}
+
+.pillar-desc {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* What Sustainable Agriculture Means To Us (No Background Override) */
+.sustainability-means-block {
+  background: var(--bg-card);
+  padding: 3.5rem 4rem;
+  border-radius: var(--radius-md);
+  border: var(--border-subtle);
+}
+
+.sustainability-means-block.no-bg {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.means-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.means-heading {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 800;
+  color: #111111 !important;
+  margin-top: 0.5rem;
+  text-transform: uppercase;
+}
+
+.means-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2.5rem;
+}
+
+.means-item {
+  position: relative;
+  background: #f8f8f8 !important;
+  padding: 1.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid #e5e5e5 !important;
+  transition: all 0.3s ease;
+}
+
+.means-item:hover {
+  background: #ffffff !important;
+  border-color: var(--color-red) !important;
+  transform: translateY(-5px);
+}
+
+.means-number {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--color-red);
+  margin-bottom: 0.5rem;
+}
+
+.means-item-title {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #111111 !important;
+  margin-bottom: 0.5rem;
+}
+
+.means-item p {
+  font-size: 0.92rem;
+  color: #444444 !important;
+  line-height: 1.55;
+  margin: 0;
+}
+
+@media (max-width: 960px) {
+  .philosophy-pillars-stack {
+    flex-direction: column;
+    height: auto;
+    gap: 2rem;
+  }
+
+  .pillar-card {
+    position: relative;
+    left: auto !important;
+    transform: none !important;
+    width: 100%;
+    max-width: 380px;
+    height: 380px;
+  }
+}
+
+/* =========================================================================
+   LATEST DROPS SHOP SECTION
+   ========================================================================= */
+.home-shop-section,
+.home-shop-section.full-width-shop-section {
+
+  background: #ffffff;
+  padding: 3.5rem 3rem;
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+
+  .home-shop-section,
+  .home-shop-section.full-width-shop-section {
+    padding: 2.5rem 1.5rem;
+  }
+}
+
+.shop-full-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.shop-section-header.text-center,
+.shop-section-header.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.shop-title-main {
+  font-size: clamp(1.6rem, 2.8vw, 2.3rem);
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: -0.5px;
+  color: #111111 !important;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* --------------------------------------------------------------------------
+   CONTINUOUS SMOOTH MARQUEE CAROUSEL (NO SNAPPY / SIMULTANEOUS FLOW)
+   -------------------------------------------------------------------------- */
+@keyframes continuousCarouselSlide {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.home-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden !important;
+  padding: 0.5rem 0;
+}
+
+.home-carousel-track,
+.home-carousel-track.marquee-running {
+  display: flex !important;
+  width: max-content !important;
+  gap: 1.5rem;
+  padding: 0.25rem 0;
+  will-change: transform;
+  animation: continuousCarouselSlide 28s linear infinite !important;
+}
+
+.home-carousel-wrapper:hover .home-carousel-track,
+.home-carousel-track:hover {
+  animation-play-state: paused !important;
+}
+
+.home-carousel-track::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.home-carousel-track .carousel-card-item,
+.home-carousel-track .shop-product-card {
+  flex: 0 0 270px !important;
+  width: 270px !important;
+  max-width: 270px !important;
+  flex-shrink: 0 !important;
+  box-sizing: border-box !important;
+  border-right: none !important;
+}
+
+@media (max-width: 768px) {
+
+  .home-carousel-track .carousel-card-item,
+  .home-carousel-track .shop-product-card {
+    flex: 0 0 220px !important;
+    width: 220px !important;
+    max-width: 220px !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* CTA Price Bar */
+.product-cta-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1.5px solid #000000;
+  border-radius: 50px;
+  padding: 0.55rem 1.25rem;
+  margin-top: auto;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  background: #ffffff;
+}
+
+.shop-product-card:hover .product-cta-bar {
+  background: #000000;
+  border-color: #000000;
+}
+
+.product-cta-text {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #000000;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color 0.2s ease;
+}
+
+.shop-product-card:hover .product-cta-text {
+  color: #ffffff;
+}
+
+.product-price {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #000000;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+}
+
+.shop-product-card:hover .product-price {
+  color: #ffffff;
+}
+
+/* Custom Scrollbar Styling below the products */
+.shop-scrollbar-track-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 3.5rem;
+}
+
+.shop-scrollbar-track {
+  width: min(400px, 80%);
+  height: 4px;
+  background: #eaeaea;
+  position: relative;
+  border-radius: 2px;
+  overflow: visible;
+  /* Let thumb be slightly larger vertically if needed */
+}
+
+.shop-scrollbar-thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 10%;
+  /* Will be dynamically updated by JS, falls back to static width */
+  background: var(--color-red);
+  border-radius: 2px;
+  will-change: transform, width;
+}
+
+/* Responsive grid rules for scroll snaps */
+@media (max-width: 991px) {
+  .shop-product-card {
+    flex: 0 0 50%;
+    /* 2 columns visible on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .shop-product-card {
+    flex: 0 0 85%;
+    /* 1.15 columns visible on mobile so they see the next product cut off */
+    padding: 1.75rem 1.25rem;
+  }
+}

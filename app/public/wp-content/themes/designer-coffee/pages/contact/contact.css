@@ -1,0 +1,58 @@
+/* ==========================================================================
+   CONTACT PAGE SPECIFIC STYLES (pages/contact/contact.css)
+   ========================================================================== */
+
+.contact-page-wrapper {
+  padding-top: 9rem;
+  padding-bottom: 6rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3.5rem;
+}
+
+@media (max-width: 850px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+.contact-info-card {
+  background: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: var(--radius-md);
+  border: var(--border-subtle);
+}
+
+.contact-info-item {
+  margin-bottom: 1.75rem;
+}
+
+.contact-info-item h4 {
+  color: var(--color-red);
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.35rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea,
+select {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: var(--bg-input);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  color: var(--text-heading);
+  font-family: var(--font-main) !important;
+  font-size: 1rem;
+  margin-bottom: 1.25rem;
+  transition: border-color 0.25s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--color-red);
+}

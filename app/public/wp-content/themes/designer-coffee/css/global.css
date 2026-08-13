@@ -1,0 +1,52 @@
+/* ==========================================================================
+   DESIGNER COFFEE — MASTER GLOBAL STYLESHEET (GLOBAL.CSS)
+   Modular Component Architecture:
+   1. variables.css    - Design tokens & font declarations
+   2. base.css         - Global reboot & layout utilities
+   3. header.css       - Floating nav, menu dropdowns, mini-cart preview
+   4. footer.css       - Footer layout, links, to-top button
+   5. buttons.css      - UI button variations & brand pill buttons
+   6. product-card.css - Reusable product card component
+   ========================================================================== */
+
+@import url('components/variables.css');
+@import url('components/base.css');
+@import url('components/header.css');
+@import url('components/footer.css');
+@import url('components/buttons.css');
+@import url('components/product-card.css');
+
+/* --------------------------------------------------------------------------
+   SHOP & CATALOG PAGE OVERRIDES
+   -------------------------------------------------------------------------- */
+body.woocommerce-shop,
+body.woocommerce-page,
+body.post-type-archive-product,
+body.tax-product_cat,
+body.page-template-template-shop,
+body.page-id-1328,
+body.page-id-5 {
+  background-color: #ffffff !important;
+}
+
+.shop-page-wrapper {
+  background-color: #ffffff !important;
+  color: #000000;
+}
+
+/* Ensure grind/variation values are always readable across components */
+.designer-grind-value {
+  color: var(--dc-text) !important;
+  font-weight: 900 !important;
+}
+
+/* Stronger catch-all for WooCommerce variation/meta elements that may be styled elsewhere */
+.woocommerce .variation,
+.woocommerce small.variation,
+.woocommerce dl.variation dd,
+.woocommerce dl.variation,
+.woocommerce .item-meta,
+.woocommerce .woocommerce-order .variation,
+.woocommerce dd {
+  color: var(--dc-text) !important;
+}

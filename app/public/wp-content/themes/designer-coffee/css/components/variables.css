@@ -1,0 +1,132 @@
+/* ==========================================================================
+   DESIGN SYSTEM TOKENS & FONTS (css/components/variables.css)
+   Text: Google Sans
+   Monospace & Code: Google Sans Code
+   Headers & Titles: SFU Franklin Gothic
+   Color Palette: #CB2026 (Red), #0a0a0a (Black), #ffffff (White)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght,MONO@0,300..800,1;1,300..800,1&display=swap');
+
+/* --------------------------------------------------------------------------
+   1. FONT-FACE DEFINITIONS (SFU Franklin Gothic)
+   -------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'SFU Franklin Gothic';
+  src: url('../../fonts/SFUFranklinGothicBook.TTF') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFU Franklin Gothic';
+  src: url('../../fonts/SFUFranklinGothicBookOblique.TTF') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFU Franklin Gothic';
+  src: url('../../fonts/SFUFranklinGothicDemi.TTF') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFU Franklin Gothic';
+  src: url('../../fonts/SFUFranklinGothicDemiOblique.TTF') format('truetype');
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'SFU Franklin Gothic';
+  src: url('../../fonts/SFUFranklinGothicHeavy.TTF') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --------------------------------------------------------------------------
+   2. UNIVERSAL FONT ENFORCEMENT & DESIGN TOKENS
+   Text -> Google Sans | Code/Mono -> Google Sans Code | Headers & Titles -> SFU Franklin Gothic
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after,
+html,
+body,
+p,
+span,
+a,
+li,
+button,
+input,
+textarea,
+select,
+label,
+div {
+  font-family: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+/* MONOSPACE / CODE FONT ENFORCEMENT */
+code,
+kbd,
+samp,
+pre,
+tt,
+var,
+.font-mono,
+.mono,
+[data-mono] {
+  font-family: 'Google Sans Code', monospace !important;
+}
+
+/* HEADERS AND TITLES ONLY -> FRANKLIN GOTHIC */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.section-title,
+.hero-title,
+.page-title,
+.entry-title,
+.shop-title,
+.cart-dropdown-title,
+.cart-subtotal-row,
+.menu-dropdown-panel .main-nav a {
+  font-family: 'SFU Franklin Gothic', 'Franklin Gothic Medium', 'Franklin Gothic', sans-serif !important;
+}
+
+:root {
+  --color-red: #CB2026;
+  --color-red-hover: #e52930;
+
+  --bg-main: #0a0a0a;
+  --bg-card: #141414;
+  --bg-card-hover: #1f1f1f;
+  --bg-nav: rgba(10, 10, 10, 0.94);
+  --bg-input: #1a1a1a;
+
+  --text-main: #000000;
+  --text-heading: #ffffff;
+  --text-muted: #aaaaaa;
+
+  --border-color: rgba(203, 32, 38, 0.3);
+  --border-subtle: rgba(255, 255, 255, 0.1);
+
+  --font-main: 'Google Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'SFU Franklin Gothic', 'Franklin Gothic Medium', 'Franklin Gothic', sans-serif;
+  --font-mono: 'Google Sans Code', monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --container-max: 1280px;
+}

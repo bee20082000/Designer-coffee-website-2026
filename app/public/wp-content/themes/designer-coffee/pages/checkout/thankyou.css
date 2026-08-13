@@ -1,0 +1,536 @@
+/* ==========================================================================
+   DESIGNER COFFEE - Custom Luxury Thank You Page Styling
+   Path: /wp-content/themes/designer-coffee/pages/checkout/thankyou.css
+   ========================================================================== */
+
+:root {
+  --dc-bg: #fcfcfc;
+  --dc-card-bg: #ffffff;
+  --dc-text: #111111;
+  --dc-muted: #4b5563; /* darker muted for improved contrast */
+  --dc-border: #eaeaea;
+  --dc-accent: #111111;
+  --dc-red: #CB2026;
+  --dc-green: #10B981;
+  --dc-green-bg: #ecfdf5;
+  --dc-radius: 12px;
+  --dc-radius-lg: 16px;
+  --dc-font-main: 'Google Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --dc-font-heading: 'SFU Franklin Gothic', 'Franklin Gothic Medium', 'Franklin Gothic', sans-serif;
+  --dc-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.designer-thankyou-wrapper {
+  background-color: var(--dc-bg);
+  color: var(--dc-text);
+  font-family: var(--dc-font-main);
+  min-height: 85vh;
+  padding: 8.5rem 0 90px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.designer-thankyou-container {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* --------------------------------------------------------------------------
+   Step Navigation Breadcrumb
+   -------------------------------------------------------------------------- */
+.designer-step-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.designer-step-nav .step-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-size: 0.825rem;
+  font-weight: 700;
+  color: var(--dc-muted);
+  transition: all 0.2s ease;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.designer-step-nav .step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #e5e5e5;
+  color: var(--dc-muted);
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.designer-step-nav .step-item.step-active {
+  color: var(--dc-text);
+}
+
+.designer-step-nav .step-item.step-active .step-num {
+  background: var(--dc-accent);
+  color: #ffffff;
+}
+
+.designer-step-nav .step-item.step-completed {
+  color: #059669;
+}
+
+.designer-step-nav .step-item.step-completed .step-num {
+  background: #d1fae5;
+  color: #059669;
+}
+
+.designer-step-nav .step-divider {
+  color: #cccccc;
+  font-size: 1.1rem;
+}
+
+/* Minimal Header */
+.designer-thankyou-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--dc-border);
+}
+
+.designer-thankyou-title,
+.designer-thankyou-brand {
+  font-family: 'Google Sans Code', var(--dc-font-heading) !important;
+  font-size: 2.2rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--dc-text);
+  margin: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Card Section
+   -------------------------------------------------------------------------- */
+.thankyou-card-hero {
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--dc-card-bg);
+  border: 1px solid var(--dc-border);
+  border-radius: var(--dc-radius-lg);
+  box-shadow: var(--dc-shadow);
+  margin-bottom: 2rem;
+}
+
+.thankyou-check-badge {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  background: var(--dc-green-bg);
+  color: var(--dc-green);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 0 0 8px rgba(16, 185, 129, 0.1);
+}
+
+.thankyou-heading {
+  font-family: 'Google Sans Code', var(--dc-font-heading) !important;
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.6rem;
+  color: var(--dc-text);
+  text-transform: uppercase;
+}
+
+.thankyou-subtext {
+  font-size: 0.95rem;
+  color: var(--dc-muted);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.thankyou-subtext strong {
+  color: var(--dc-text);
+  font-weight: 800;
+  background: #f3f4f6;
+  padding: 2px 8px;
+  border-radius: 6px;
+}
+
+/* --------------------------------------------------------------------------
+   Key Overview Grid Bar
+   -------------------------------------------------------------------------- */
+.thankyou-overview-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  background: var(--dc-card-bg);
+  border: 1px solid var(--dc-border);
+  border-radius: var(--dc-radius-lg);
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--dc-shadow);
+}
+
+.overview-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.overview-label {
+  font-size: 0.725rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--dc-muted);
+}
+
+.overview-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--dc-text);
+}
+
+.overview-value.price {
+  color: var(--dc-red);
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+/* --------------------------------------------------------------------------
+   BACS / Bank Transfer Card
+   -------------------------------------------------------------------------- */
+.thankyou-bacs-card {
+  background: #fffdf5;
+  border: 1px solid #fde68a;
+  border-radius: var(--dc-radius-lg);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.05);
+}
+
+.bacs-title {
+  font-family: var(--dc-font-heading) !important;
+  font-size: 1.05rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #92400e;
+  margin-bottom: 0.5rem;
+}
+
+.bacs-intro {
+  font-size: 0.9rem;
+  color: #b45309;
+  margin-bottom: 1.25rem;
+  line-height: 1.5;
+}
+
+.bacs-accounts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.bacs-account-row {
+  background: #ffffff;
+  border: 1px solid #fcd34d;
+  border-radius: var(--dc-radius);
+  padding: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.bacs-field {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.bacs-label {
+  font-size: 0.78rem;
+  color: #78350f;
+  font-weight: 600;
+}
+
+.bacs-val {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--dc-text);
+}
+
+.bacs-field.highlight .bacs-val {
+  font-size: 1.1rem;
+  color: var(--dc-red);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+}
+
+.bacs-memo-box {
+  background: #ffffff;
+  border: 1px dashed #f59e0b;
+  border-radius: 8px;
+  padding: 0.9rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.bacs-memo-box strong {
+  font-size: 1.1rem;
+  color: var(--dc-text);
+  letter-spacing: 0.05em;
+  font-weight: 900;
+}
+
+/* --------------------------------------------------------------------------
+   Itemized Order Details Section
+   -------------------------------------------------------------------------- */
+.thankyou-details-section {
+  background: var(--dc-card-bg);
+  border: 1px solid var(--dc-border);
+  border-radius: var(--dc-radius-lg);
+  padding: 1.8rem;
+  margin-bottom: 2rem;
+  box-shadow: var(--dc-shadow);
+}
+
+.thankyou-section-heading {
+  font-family: 'Google Sans Code', var(--dc-font-heading) !important;
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  color: var(--dc-text);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--dc-border);
+  text-transform: uppercase;
+}
+
+table.thankyou-order-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table.thankyou-order-table th,
+table.thankyou-order-table td {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--dc-border);
+  font-size: 0.9rem;
+}
+
+table.thankyou-order-table th {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--dc-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding-top: 0;
+}
+
+.thankyou-product-flex {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.thankyou-item-img {
+  width: 54px;
+  height: 54px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid var(--dc-border);
+  flex-shrink: 0;
+}
+
+.thankyou-product-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.thankyou-product-name {
+  font-weight: 700;
+  color: var(--dc-text);
+  font-size: 0.9rem;
+}
+
+.thankyou-product-qty {
+  font-size: 0.8rem;
+  color: var(--dc-muted);
+}
+
+.thankyou-item-meta {
+  font-size: 0.78rem;
+  color: var(--dc-muted);
+}
+
+/* Ensure variation/grind values in order meta are readable */
+.thankyou-item-meta .designer-grind-value,
+.thankyou-item-meta strong.designer-grind-value {
+  color: var(--dc-text) !important;
+  font-weight: 900 !important;
+}
+
+table.thankyou-order-table tfoot tr th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--dc-muted);
+}
+
+table.thankyou-order-table tfoot tr td {
+  font-weight: 700;
+  color: var(--dc-text);
+}
+
+table.thankyou-order-table tfoot tr:last-child th,
+table.thankyou-order-table tfoot tr:last-child td {
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: var(--dc-red);
+  border-bottom: none;
+  padding-top: 1.25rem;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+/* --------------------------------------------------------------------------
+   Customer Addresses Grid
+   -------------------------------------------------------------------------- */
+.thankyou-addresses-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.address-card {
+  background: var(--dc-card-bg);
+  border: 1px solid var(--dc-border);
+  border-radius: var(--dc-radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--dc-shadow);
+}
+
+.address-title {
+  font-family: 'Google Sans Code', var(--dc-font-heading) !important;
+  font-size: 0.9rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--dc-text);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--dc-border);
+}
+
+.address-card address,
+.address-card p {
+  font-style: normal;
+  font-size: 0.9rem;
+  color: var(--dc-text);
+  line-height: 1.6;
+  margin: 0 0 0.4rem 0;
+}
+
+/* --------------------------------------------------------------------------
+   CTA Action Row
+   -------------------------------------------------------------------------- */
+.thankyou-cta-row {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.thankyou-shop-btn {
+  display: inline-block;
+  background: var(--dc-accent);
+  color: #ffffff !important;
+  padding: 1.1rem 2.8rem;
+  border-radius: 40px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.12);
+}
+
+.thankyou-shop-btn:hover {
+  background: var(--dc-red);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(203, 32, 38, 0.3);
+}
+
+/* Empty State */
+.designer-thankyou-empty {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: var(--dc-card-bg);
+  border: 1px solid var(--dc-border);
+  border-radius: var(--dc-radius-lg);
+  box-shadow: var(--dc-shadow);
+  max-width: 600px;
+  margin: 2rem auto;
+}
+
+.designer-thankyou-empty h2 {
+  font-family: var(--dc-font-heading) !important;
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin-bottom: 0.75rem;
+  color: var(--dc-text);
+}
+
+.designer-thankyou-empty p {
+  color: var(--dc-muted);
+  margin-bottom: 2rem;
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   Mobile Viewport Layout (< 768px)
+   -------------------------------------------------------------------------- */
+@media (max-width: 768px) {
+  .designer-thankyou-wrapper {
+    padding-top: 6.5rem;
+  }
+
+  .designer-thankyou-container {
+    padding: 0 1.25rem;
+  }
+
+  .designer-thankyou-title {
+    font-size: 1.8rem;
+  }
+
+  .thankyou-heading {
+    font-size: 1.35rem;
+  }
+
+  .thankyou-overview-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .thankyou-addresses-grid {
+    grid-template-columns: 1fr;
+  }
+}

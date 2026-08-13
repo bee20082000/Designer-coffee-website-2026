@@ -1,0 +1,31 @@
+/*
+Theme Name: Designer Coffee Custom
+Theme URI: https://designer-coffee.local/
+Author: Designer Coffee Team
+Author URI: https://designer-coffee.local/
+Description: A modern, lightweight, high-performance custom theme for Designer Coffee with native ACF support. Built with clean HTML5, CSS Grid, Flexbox, and zero legacy frameworks.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+Text Domain: designer-coffee
+*/
+
+/* Reset & Global Base Settings */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans, 'Heebo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif);
+  background-color: var(--bg-main, #12100e);
+  color: var(--text-main, #e6ded6);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
