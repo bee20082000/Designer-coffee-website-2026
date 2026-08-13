@@ -9,6 +9,16 @@
     return wc_checkout_params.wc_ajax_url.replace('%%endpoint%%', 'apply_coupon');
   }
 
+  function syncPaymentSelection() {
+    $('.dc-payment-method').each(function () {
+      const method = $(this);
+      method.toggleClass('is-selected', method.children('input[name="payment_method"]').is(':checked'));
+    });
+  }
+
+  $(document.body).on('change', 'input[name="payment_method"]', syncPaymentSelection);
+  $(document.body).on('updated_checkout', syncPaymentSelection);
+
   $(document.body).on('click', '.dc-coupon-button', function () {
     const button = $(this);
     const control = button.closest('.dc-coupon-control');
@@ -48,4 +58,6 @@
       $(this).siblings('.dc-coupon-button').trigger('click');
     }
   });
+
+  syncPaymentSelection();
 })(jQuery);
