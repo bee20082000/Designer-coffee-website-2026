@@ -294,7 +294,8 @@ table.shop_table .order-total td { font-size: 1.2rem; }
 }
 
 #payment ul.payment_methods li {
-  margin: 0 0 1rem;
+  position: relative;
+  margin: 0 0 1.2rem;
   padding: 0;
   border: 0;
   border-radius: 0;
@@ -305,22 +306,64 @@ table.shop_table .order-total td { font-size: 1.2rem; }
 #payment ul.payment_methods label {
   display: flex;
   align-items: center;
-  gap: .65rem;
+  gap: .75rem;
+  min-height: 24px;
   color: var(--checkout-ink);
   font-size: .82rem;
-  font-weight: 650;
+  font-weight: 600;
+  line-height: 1.4;
   cursor: pointer;
 }
 
 #payment input[type="radio"] {
-  width: 15px;
-  height: 15px;
+  position: relative;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
   margin: 0;
-  accent-color: var(--checkout-ink);
+  border: 1px solid #aaa6a0;
+  border-radius: 50%;
+  background: #fff;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: border-color .18s ease;
+}
+
+#payment input[type="radio"]::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--checkout-ink);
+  content: "";
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.5);
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+#payment input[type="radio"]:checked {
+  border-color: var(--checkout-ink);
+}
+
+#payment input[type="radio"]:checked::after {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+#payment input[type="radio"]:focus-visible {
+  outline: 3px solid rgba(21, 21, 21, .12);
+  outline-offset: 2px;
+}
+
+#payment input[type="radio"]:checked + label {
+  font-weight: 750;
 }
 
 #payment .payment_box {
-  margin: .6rem 0 0 1.65rem;
+  margin: .65rem 0 0 1.9rem;
   padding: 0;
   border: 0;
   background: transparent;

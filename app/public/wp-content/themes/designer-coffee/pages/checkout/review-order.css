@@ -24,21 +24,23 @@
 
 .dc-qty-badge {
   position: absolute;
-  top: -5px;
-  right: -9px;
-  width: auto;
-  height: auto;
+  top: -7px;
+  right: -7px;
+  display: grid;
+  width: 22px;
+  height: 22px;
   padding: 0;
+  place-items: center;
   border: 0;
-  border-radius: 0;
-  background: transparent;
-  color: #74716d;
+  border-radius: 50%;
+  background: #151515;
+  color: #fff;
   font-size: .65rem;
-  font-weight: 700;
+  font-weight: 750;
   line-height: 1;
+  box-shadow: 0 0 0 3px #fff;
 }
 
-.dc-qty-badge::before { content: "×"; }
 .dc-order-product-copy { min-width: 0; }
 
 .dc-order-product-name {
