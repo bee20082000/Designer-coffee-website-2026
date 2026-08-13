@@ -114,10 +114,43 @@ if (!function_exists('designer_coffee_custom_checkout_fields')) {
         $fields['billing']['billing_last_name']['priority']  = 10;
         $fields['billing']['billing_first_name']['priority'] = 20;
 
+        foreach ($fields as $section => &$section_fields) {
+            foreach ($section_fields as &$field) {
+                if (!empty($field['label']) && empty($field['placeholder'])) {
+                    $field['placeholder'] = $field['label'];
+                }
+
+                if (isset($field['type']) && !in_array($field['type'], array('checkbox', 'radio'), true)) {
+                    $field['autocomplete'] = 'off';
+                }
+            }
+            unset($field);
+        }
+        unset($section_fields);
+
         return $fields;
     }
     add_filter('woocommerce_checkout_fields', 'designer_coffee_custom_checkout_fields');
 }
+
+/**
+ * Start each checkout visit with empty customer fields.
+ * Keep the configured default country so shipping remains calculable.
+ */
+function designer_coffee_reset_checkout_field_value($value, $input) {
+    $request_method = isset($_SERVER['REQUEST_METHOD']) ? strtoupper(sanitize_text_field(wp_unslash($_SERVER['REQUEST_METHOD']))) : 'GET';
+
+    if (wp_doing_ajax() || 'POST' === $request_method) {
+        return $value;
+    }
+
+    if ('billing_country' === $input || 'shipping_country' === $input) {
+        return 'VN';
+    }
+
+    return '';
+}
+add_filter('woocommerce_checkout_get_value', 'designer_coffee_reset_checkout_field_value', 10, 2);
 
 // 4. Change Submit Button Text to "ĐẶT HÀNG"
 if (!function_exists('designer_coffee_order_button_text')) {

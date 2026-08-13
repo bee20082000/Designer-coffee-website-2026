@@ -26,6 +26,13 @@
     }
   }
 
+  function clearRestoredCustomerDetails() {
+    const customerDetails = $('#customer_details');
+
+    customerDetails.find('input[type="text"], input[type="email"], input[type="tel"], textarea').val('');
+    customerDetails.find('select').not('#billing_country, #shipping_country').val('').trigger('change.select2');
+  }
+
   $(document.body).on('change', 'input[name="payment_method"]', syncPaymentSelection);
   $(document.body).on('updated_checkout', function () {
     positionPaymentPanel();
@@ -74,4 +81,11 @@
 
   positionPaymentPanel();
   syncPaymentSelection();
+
+  window.addEventListener('pageshow', function (event) {
+    if (event.persisted) {
+      clearRestoredCustomerDetails();
+      $(document.body).trigger('update_checkout');
+    }
+  });
 })(jQuery);

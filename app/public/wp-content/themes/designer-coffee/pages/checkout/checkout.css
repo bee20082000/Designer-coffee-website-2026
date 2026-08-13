@@ -4,7 +4,7 @@
   --checkout-paper: #fff;
   --checkout-red: #cb2026;
   --checkout-input: #d8d5cf;
-  --checkout-surface: #f5f5f4;
+  --checkout-surface: #fff;
 }
 
 .designer-checkout-wrapper {
@@ -126,7 +126,7 @@ form.checkout_coupon { display: none !important; }
 
 .designer-checkout-form-wrapper #customer_details {
   padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.25rem, 3vw, 2rem) .5rem;
-  background: var(--checkout-surface);
+  background: #fff;
 }
 
 #customer_details .col-1,
@@ -185,6 +185,18 @@ form.checkout_coupon { display: none !important; }
   letter-spacing: .025em;
 }
 
+.woocommerce-checkout .form-row > label:not(.checkbox) {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 .woocommerce-checkout .required {
   color: var(--checkout-red);
   text-decoration: none;
@@ -205,6 +217,12 @@ form.checkout_coupon { display: none !important; }
   font-size: .88rem;
   box-shadow: none;
   transition: border-color .2s ease;
+}
+
+.woocommerce-checkout input.input-text::placeholder,
+.woocommerce-checkout textarea::placeholder {
+  color: #918e89;
+  opacity: 1;
 }
 
 .woocommerce-checkout textarea {
@@ -241,7 +259,7 @@ form.checkout_coupon { display: none !important; }
   padding: clamp(1.5rem, 3vw, 2.25rem);
   border: 0 !important;
   border-radius: 0;
-  background: var(--checkout-surface);
+  background: #fff;
   box-shadow: none;
 }
 
@@ -411,7 +429,7 @@ table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
   padding: 1.25rem clamp(1.25rem, 3vw, 2rem) clamp(1.75rem, 3vw, 2.25rem);
   border: 0 !important;
   border-radius: 0 !important;
-  background: var(--checkout-surface) !important;
+  background: #fff !important;
   font-family: inherit;
   box-shadow: none !important;
 }
@@ -499,7 +517,7 @@ table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
   height: 18px;
   border: 1px solid #aaa6a0;
   border-radius: 50%;
-  background: var(--checkout-paper);
+  background: #fff;
 }
 
 .dc-payment-radio::after {
