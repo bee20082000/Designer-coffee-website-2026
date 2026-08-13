@@ -92,7 +92,7 @@
 
 .dc-compact-order-table tbody td {
   padding-top: .25rem;
-  padding-bottom: 1.4rem;
+  padding-bottom: 1.2rem;
 }
 
 .dc-compact-order-table tbody td.product-total {
@@ -103,7 +103,7 @@
 }
 
 .dc-checkout-coupon td {
-  padding: .8rem 0 1.4rem !important;
+  padding: .7rem 0 1.15rem !important;
   border: 0 !important;
 }
 
@@ -167,7 +167,7 @@
 
 .dc-coupon-feedback {
   min-height: 1em;
-  margin: .55rem 0 0;
+  margin: .45rem 0 0;
   color: #74716d;
   font-size: .68rem;
   line-height: 1.45;
