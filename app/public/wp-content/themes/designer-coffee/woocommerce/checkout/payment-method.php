@@ -10,8 +10,7 @@ defined('ABSPATH') || exit;
 
 $gateway_id          = $gateway->id;
 $gateway_title       = $gateway->get_title();
-$gateway_description = $gateway->get_description();
-$gateway_has_details = $gateway->has_fields() || $gateway_description;
+$gateway_has_details = $gateway->has_fields();
 ?>
 <li class="wc_payment_method payment_method_<?php echo esc_attr($gateway_id); ?> dc-payment-method<?php echo $gateway->chosen ? ' is-selected' : ''; ?>">
     <input

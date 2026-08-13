@@ -17,11 +17,7 @@ if (!wp_doing_ajax()) {
 ?>
 <section id="payment" class="woocommerce-checkout-payment dc-payment-panel" aria-labelledby="dc-payment-title">
     <header class="dc-payment-header">
-        <span class="dc-payment-step" aria-hidden="true">02</span>
-        <div>
-            <h3 id="dc-payment-title"><?php esc_html_e('Payment', 'woocommerce'); ?></h3>
-            <p><?php esc_html_e('Choose how you would like to pay.', 'designer-coffee'); ?></p>
-        </div>
+        <h3 id="dc-payment-title"><?php esc_html_e('Payment', 'woocommerce'); ?></h3>
     </header>
 
     <?php if (WC()->cart && WC()->cart->needs_payment()) : ?>

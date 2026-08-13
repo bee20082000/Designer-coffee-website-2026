@@ -59,9 +59,7 @@ $shop_url = function_exists('wc_get_page_permalink') ? wc_get_page_permalink('sh
             <header class="designer-checkout-header">
                 <a class="designer-checkout-back" href="<?php echo esc_url($shop_url); ?>">&larr; Tiếp tục mua sắm</a>
                 <div>
-                    <span class="designer-checkout-eyebrow">Designer Coffee</span>
-                    <h1 class="designer-checkout-title">Thanh toán</h1>
-                    <p class="designer-checkout-subtitle">Hoàn tất đơn hàng của bạn một cách an toàn.</p>
+                    <h1 class="designer-checkout-title">Checkout</h1>
                 </div>
             </header>
 
