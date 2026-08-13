@@ -4,6 +4,7 @@
   --checkout-paper: #fff;
   --checkout-red: #cb2026;
   --checkout-input: #d8d5cf;
+  --checkout-surface: #f5f5f4;
 }
 
 .designer-checkout-wrapper {
@@ -101,6 +102,7 @@ form.checkout_coupon { display: none !important; }
 
   .designer-checkout-form-wrapper #customer_details {
     grid-column: 1;
+    grid-row: 1;
     width: 100%;
     float: none;
   }
@@ -109,11 +111,22 @@ form.checkout_coupon { display: none !important; }
 
   .designer-checkout-form-wrapper #order_review {
     grid-column: 2;
+    grid-row: 1 / span 2;
     position: sticky;
     top: 8rem;
     width: 100%;
     float: none;
   }
+
+  .designer-checkout-form-wrapper form.checkout > #payment {
+    grid-column: 1;
+    grid-row: 2;
+  }
+}
+
+.designer-checkout-form-wrapper #customer_details {
+  padding: clamp(1.5rem, 3vw, 2.25rem) clamp(1.25rem, 3vw, 2rem) .5rem;
+  background: var(--checkout-surface);
 }
 
 #customer_details .col-1,
@@ -185,7 +198,7 @@ form.checkout_coupon { display: none !important; }
   height: 52px;
   padding: 0 15px;
   border: 1px solid var(--checkout-input);
-  border-radius: 0;
+  border-radius: 10px;
   background: #fff;
   color: var(--checkout-ink);
   font: inherit;
@@ -225,10 +238,10 @@ form.checkout_coupon { display: none !important; }
 }
 
 #order_review {
-  padding: 0;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
   border: 0 !important;
   border-radius: 0;
-  background: transparent;
+  background: var(--checkout-surface);
   box-shadow: none;
 }
 
@@ -394,11 +407,11 @@ table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
 }
 
 .woocommerce-checkout #payment.dc-payment-panel {
-  margin-top: 3.75rem;
-  padding: 0;
+  margin-top: 0;
+  padding: 1.25rem clamp(1.25rem, 3vw, 2rem) clamp(1.75rem, 3vw, 2.25rem);
   border: 0 !important;
   border-radius: 0 !important;
-  background: transparent !important;
+  background: var(--checkout-surface) !important;
   font-family: inherit;
   box-shadow: none !important;
 }
@@ -431,15 +444,31 @@ table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
   position: relative;
   margin: 0;
   padding: 0;
-  border: 0 !important;
-  border-radius: 0;
-  background: transparent !important;
+  border: 1px solid #dfddda !important;
+  border-radius: 10px;
+  background: #fff !important;
   box-shadow: none !important;
   transition: background-color .18s ease;
 }
 
+.woocommerce-checkout #payment .dc-payment-method + .dc-payment-method {
+  margin-top: -1px;
+}
+
+.woocommerce-checkout #payment .dc-payment-method:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+.woocommerce-checkout #payment .dc-payment-method:first-child:not(:last-child) {
+  border-radius: 10px 10px 0 0;
+}
+
+.woocommerce-checkout #payment .dc-payment-method:last-child:not(:first-child) {
+  border-radius: 0 0 10px 10px;
+}
+
 .dc-payment-method:has(> input:checked),
-.dc-payment-method.is-selected { background: transparent !important; }
+.dc-payment-method.is-selected { background: #fff !important; }
 
 .dc-payment-method > .input-radio {
   position: absolute;
@@ -459,7 +488,7 @@ table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
   gap: .8rem;
   align-items: center;
   min-height: 48px !important;
-  padding: .7rem 0;
+  padding: .75rem .9rem;
   color: var(--checkout-ink);
   cursor: pointer;
 }
@@ -535,7 +564,7 @@ table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
 
 .woocommerce-checkout #payment .dc-payment-details {
   margin: 0;
-  padding: 0 0 .85rem 1.9rem;
+  padding: 0 .9rem .85rem 2.8rem;
   border: 0 !important;
   border-radius: 0 !important;
   background: transparent !important;
@@ -583,7 +612,7 @@ table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
 }
 
 @media (max-width: 560px) {
-  .dc-payment-panel { margin-top: 3rem; }
+  .dc-payment-panel { margin-top: 0; }
   .dc-payment-method-label { grid-template-columns: 18px minmax(0, 1fr) auto; gap: .65rem; }
   .dc-payment-method-icon { max-width: 72px; }
   .dc-payment-details { padding-left: 1.7rem; }
@@ -641,7 +670,9 @@ table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
   .designer-checkout-header { grid-template-columns: 1fr; gap: 1.25rem; margin-bottom: 3.5rem; }
   .designer-checkout-header > div { grid-column: 1; grid-row: 1; text-align: left; }
   .designer-checkout-back { grid-row: 2; }
-  #order_review { margin-top: 1rem; }
+  #order_review { margin-top: 2rem; }
+  .designer-checkout-form-wrapper #customer_details { padding: 1.5rem 1.25rem .5rem; }
+  .woocommerce-checkout #payment.dc-payment-panel { padding: 1rem 1.25rem 1.75rem; }
 }
 
 @media (max-width: 560px) {

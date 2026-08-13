@@ -16,8 +16,21 @@
     });
   }
 
+  function positionPaymentPanel() {
+    const form = $('form.checkout');
+    const customerDetails = form.children('#customer_details');
+    const payment = form.find('#payment');
+
+    if (customerDetails.length && payment.length && !payment.prev().is('#customer_details')) {
+      payment.insertAfter(customerDetails);
+    }
+  }
+
   $(document.body).on('change', 'input[name="payment_method"]', syncPaymentSelection);
-  $(document.body).on('updated_checkout', syncPaymentSelection);
+  $(document.body).on('updated_checkout', function () {
+    positionPaymentPanel();
+    syncPaymentSelection();
+  });
 
   $(document.body).on('click', '.dc-coupon-button', function () {
     const button = $(this);
@@ -59,5 +72,6 @@
     }
   });
 
+  positionPaymentPanel();
   syncPaymentSelection();
 })(jQuery);
