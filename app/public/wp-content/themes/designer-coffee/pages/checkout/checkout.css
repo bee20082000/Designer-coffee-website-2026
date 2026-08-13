@@ -5,6 +5,9 @@
   --checkout-red: #cb2026;
   --checkout-input: #dfddda;
   --checkout-control-height: 64px;
+  --checkout-control-radius: 14px;
+  --checkout-control-padding: 14px;
+  --checkout-control-font-size: .8rem;
   --checkout-surface: #fff;
 }
 
@@ -161,7 +164,10 @@ form.checkout_coupon { display: none !important; }
 .woocommerce-shipping-fields__field-wrapper {
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-auto-flow: row;
+  align-items: start;
   gap: 0 12px;
+  width: 100%;
 }
 
 .form-row-wide,
@@ -192,8 +198,10 @@ form.checkout_coupon { display: none !important; }
 #shipping_state_field { grid-column: span 2; }
 
 .woocommerce-checkout .form-row {
+  display: block;
   width: 100% !important;
   min-width: 0;
+  max-width: none !important;
   float: none !important;
   margin: 0 0 12px;
   padding: 0;
@@ -204,6 +212,14 @@ form.checkout_coupon { display: none !important; }
   display: block;
   width: 100% !important;
   min-width: 0;
+}
+
+.woocommerce-checkout .form-row-first,
+.woocommerce-checkout .form-row-last {
+  width: 100% !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  float: none !important;
 }
 
 .woocommerce-checkout .form-row label {
@@ -238,13 +254,13 @@ form.checkout_coupon { display: none !important; }
 .select2-container--default .select2-selection--single {
   width: 100%;
   height: var(--checkout-control-height);
-  padding: 0 14px;
+  padding: 0 var(--checkout-control-padding);
   border: 1px solid var(--checkout-input);
-  border-radius: 14px;
+  border-radius: var(--checkout-control-radius);
   background: #fff;
   color: var(--checkout-ink);
   font: inherit;
-  font-size: .8rem;
+  font-size: var(--checkout-control-font-size);
   box-sizing: border-box;
   box-shadow: none;
   transition: border-color .2s ease;
@@ -448,7 +464,7 @@ table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
 
 .woocommerce-checkout #payment .dc-payment-methods {
   display: grid;
-  gap: 0;
+  gap: 12px;
   margin: 0;
   padding: 0;
   border: 0 !important;
@@ -461,26 +477,10 @@ table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
   margin: 0;
   padding: 0;
   border: 1px solid #dfddda !important;
-  border-radius: 10px;
+  border-radius: var(--checkout-control-radius);
   background: #fff !important;
   box-shadow: none !important;
   transition: background-color .18s ease;
-}
-
-.woocommerce-checkout #payment .dc-payment-method + .dc-payment-method {
-  margin-top: -1px;
-}
-
-.woocommerce-checkout #payment .dc-payment-method:not(:first-child):not(:last-child) {
-  border-radius: 0;
-}
-
-.woocommerce-checkout #payment .dc-payment-method:first-child:not(:last-child) {
-  border-radius: 10px 10px 0 0;
-}
-
-.woocommerce-checkout #payment .dc-payment-method:last-child:not(:first-child) {
-  border-radius: 0 0 10px 10px;
 }
 
 .dc-payment-method:has(> input:checked),
@@ -504,7 +504,7 @@ table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
   gap: .8rem;
   align-items: center;
   min-height: var(--checkout-control-height) !important;
-  padding: .75rem .9rem;
+  padding: 0 var(--checkout-control-padding);
   color: var(--checkout-ink);
   cursor: pointer;
 }
@@ -554,7 +554,7 @@ table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
 .dc-payment-method-copy strong {
   display: block;
   color: var(--checkout-ink);
-  font-size: .82rem;
+  font-size: var(--checkout-control-font-size);
   font-weight: 600;
   line-height: 1.35;
 }
@@ -828,20 +828,21 @@ table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
 .dc-coupon-control {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
-  gap: 10px;
+  gap: 12px;
+  width: 100%;
 }
 
 .dc-coupon-input {
   width: 100%;
   min-width: 0;
-  height: 64px;
-  padding: 0 14px;
-  border: 1px solid #dfddda;
-  border-radius: 14px;
+  height: var(--checkout-control-height);
+  padding: 0 var(--checkout-control-padding);
+  border: 1px solid var(--checkout-input);
+  border-radius: var(--checkout-control-radius);
   background: #fff;
   color: #151515;
   font: inherit;
-  font-size: .8rem;
+  font-size: var(--checkout-control-font-size);
   box-sizing: border-box;
   box-shadow: none;
 }
@@ -855,10 +856,10 @@ table.shop_table tfoot .cart-discount td { color: var(--checkout-red); }
 
 .dc-coupon-button {
   min-width: 84px;
-  height: 64px;
+  height: var(--checkout-control-height);
   padding: 0 18px;
   border: 0;
-  border-radius: 14px;
+  border-radius: var(--checkout-control-radius);
   background: #fff;
   color: #151515;
   font: inherit;
